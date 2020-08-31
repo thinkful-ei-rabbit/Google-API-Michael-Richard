@@ -1,5 +1,6 @@
 import React from 'react';
 import './Booklist.css';
+import BookItem from './BookItem';
 
 class Booklist extends React.Component {
     // this.props.items 
@@ -10,21 +11,14 @@ class Booklist extends React.Component {
             const salePrice = (el.saleInfo.retailPrice) ? el.saleInfo.retailPrice.amount : 'Either Free or Unavailable';
             return (
                 <li key={index} className="list-item">
-                    <div>
-                        <h3>{elVol.title}</h3>
-                    </div>
-                    <div className="list-item-box">
-                        <img src={elVol.imageLinks.thumbnail} alt="Placeholder" />
-                        <div className="list-item-nested-box">
-                            <h5>
-                                Authors:{elVol.authors}
-                            </h5>
-                            <h6>Price:{salePrice}</h6>
-                            <div>
-                                {elVol.description}
-                            </div>
-                        </div>
-                    </div>
+                    <BookItem 
+                    title={elVol.title} 
+                    authors={elVol.authors}
+                    salePrice={salePrice} 
+                    shortDesc={el.searchInfo.textSnippet}
+                    longDesc={elVol.description} 
+                    thumbnail={elVol.imageLinks.thumbnail}
+                    />
                 </li>
             )
         })
