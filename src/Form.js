@@ -8,7 +8,7 @@ class Form extends React.Component {
         return (
             <div>
              <SearchBar handleSubmit={this.props.handleSubmit}/>
-             <FilterBar />
+             <FilterBar handlePrint={this.props.handlePrint} handleFilter={this.props.handleFilter} handleSubmit={this.props.handleSubmit}/>
             </div>
         )
     }
