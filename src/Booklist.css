@@ -1,0 +1,22 @@
+.list-item {
+    background-color: #e3e3e3;
+    padding: 8px;
+    margin: 8px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.list-item-box {
+    display: flex;
+    
+}
+
+.list-item-nested-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

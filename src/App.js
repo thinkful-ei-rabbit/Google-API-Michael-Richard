@@ -16,6 +16,8 @@ class App extends React.Component {
 
 componentDidMount() {
   // fetch
+  // in form submit, change q: variable,
+
   fetch(`${api_url}?q=flowers`).then(res => res.json()).then(json => {
     this.setState({items: json.items})
   })
@@ -23,14 +25,27 @@ componentDidMount() {
   // set state.items to results
 }
 
+// function that changes state based on a new fetch call and rerenders
+// callback function, as a property of the form
+
+handleSubmit = (e, val) => {
+  e.preventDefault();
+  console.log(val)
+  fetch(`${api_url}?q=${val}`).then(res => res.json())
+    .then(json => {
+      this.setState({items: json.items})
+    })
+}
+
+
+// filter functions
 
 
 render() {
-  console.log(this.state.items)
   return (
     <div className="App">
       <Header />
-      <Form />
+      <Form handleSubmit={this.handleSubmit}/>
       <Booklist items={this.state.items}/>
     </div>
   );

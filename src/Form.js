@@ -4,9 +4,10 @@ import FilterBar from './FilterBar.js';
 
 class Form extends React.Component {
     render() {
+        
         return (
             <div>
-             <SearchBar />
+             <SearchBar handleSubmit={this.props.handleSubmit}/>
              <FilterBar />
             </div>
         )
